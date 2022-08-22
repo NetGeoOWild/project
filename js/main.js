@@ -52,9 +52,9 @@ rememberMyFilms();
 let yourGenres;
 
 function writeYourGenres(object) {
-    for (let i = 0; i < 3; i++) {
-        yourGenres = prompt("Ваш любимый жанр?");
-        object["genres"].push(yourGenres);
+    for (let i = 1; i < 4; i++) {
+        yourGenres = prompt(`${i}: Ваш любимый жанр?`);
+        object["genres"][i - 1] = yourGenres;
     }
 
     return object["genres"];
@@ -79,7 +79,7 @@ detectPersonalLevel();
 function showMyDB(object) {
     if (object.hasOwnProperty("private")) {
         if (object["private"] === false) {
-            console.log(object);
+            return console.log(object);
         } else {
             return console.log(`private: ${object["private"]}`);
         }
